@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthetic Biology: Engineering Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #003366;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="py-12 md:py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#003366]">Synthetic Biology: Engineering Life</h1>
+            <p class="mt-4 text-lg md:text-xl text-[#004E9A]">
+                An analysis of the field's evolution from classical biology to an engineering discipline, exploring its core technologies, foundational milestones, and philosophical frontiers.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+        <section class="md:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-[#003366] mb-6">The Evolution of an Engineering Discipline</h2>
+            <p class="text-base text-[#004E9A] mb-8 max-w-4xl">
+                Synthetic biology designs and constructs biological systems with defined properties, including those not found in nature. What began as theoretical biology (1970s) and early genetic engineering (1980s-90s) has now matured into a full-fledged engineering discipline, driven by milestones like the first synthetic genome in 2010.
+            </p>
+            <div class="relative pl-8 border-l-4 border-[#007BFF]">
+                
+                <div class="mb-10 relative">
+                    <div class="absolute w-5 h-5 bg-[#007BFF] rounded-full -left-[1.45rem] top-1 border-4 border-white"></div>
+                    <h3 class="text-xl font-semibold text-[#004E9A]">Classical Biology (1859–1955)</h3>
+                    <p class="text-sm text-[#003366] mt-1">Darwin (Evolution), Mendel (Heredity), Watson & Crick (DNA Structure), Sanger (First Protein Sequence).</p>
+                </div>
+                
+                <div class="mb-10 relative">
+                    <div class="absolute w-5 h-5 bg-[#007BFF] rounded-full -left-[1.45rem] top-1 border-4 border-white"></div>
+                    <h3 class="text-xl font-semibold text-[#004E9A]">Molecular Biology (1957–1992)</h3>
+                    <p class="text-sm text-[#003366] mt-1">In vitro DNA synthesis, Operon Model, Restriction Enzymes, DNA Sequencing, PCR, Flux Balance Theory.</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute w-5 h-5 bg-[#007BFF] rounded-full -left-[1.45rem] top-1 border-4 border-white"></div>
+                    <h3 class="text-xl font-semibold text-[#004E9A]">Synthetic & Genomic Biology (1995–2019)</h3>
+                    <p class="text-sm text-[#003366] mt-1">First bacterial genomes, RNA-Seq & CRISPR, First Synthetic Cell (2010), Minimal Synthetic Cell (2016), Biology recognized as an Engineering Discipline (2019).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8 flex flex-col">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">The Quest for the Minimal Cell</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                A primary goal of synthetic biology is to understand the fundamental components of life by building a "minimal cell." This involves systematically reducing a genome to only the genes essential for life.
+            </p>
+            <h3 class="text-xl font-semibold text-[#004E9A] text-center mb-2">JCVI-syn3.0: A Minimal Genome (2016)</h3>
+            <div class="chart-container flex-grow">
+                <canvas id="minimalCellChart"></canvas>
+            </div>
+            <p class="text-sm text-[#004E9A] mt-6">
+                The 2016 minimal cell, JCVI-syn3.0, contains 473 genes. Critically, 149 of these genes—over 31%—have functions that remain unknown, highlighting how much we still have to learn about the basic operations of life.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8 flex flex-col">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">Milestones in Genome Synthesis</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                The creation of a minimal cell was the culmination of decades of work, starting with the first fully synthetic genome, JCVI-syn1.0. This 15-year, $40 million project proved that genomes could be designed and built from scratch.
+            </p>
+            <h3 class="text-xl font-semibold text-[#004E9A] text-center mb-2">Genome Reduction Series (kbp)</h3>
+            <div class="chart-container flex-grow">
+                <canvas id="genomeReductionChart"></canvas>
+            </div>
+            <p class="text-sm text-[#004E9A] mt-6">
+                This chart shows the radical reduction in genome size from the natural *M. mycoides* donor (1,083 kbp) to the minimized JCVI-syn2.0 (576 kbp) and the subsequent minimal cell JCVI-syn3.0 (531 kbp).
+            </p>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">Expanding the Biological Alphabet: Artificial Enzymes</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                Beyond minimizing life, scientists are actively expanding its toolkit. By incorporating unnatural amino acids (nnAAs), enzymes can be engineered with enhanced activity, stability, and selectivity, or even to perform new-to-nature catalytic reactions.
+            </p>
+            <h3 class="text-xl font-semibold text-[#004E9A] mb-4">Key Development Approaches:</h3>
+            <ul class="list-disc list-inside space-y-2 text-[#003366]">
+                <li>Computational design of modified and chimeric enzyme models.</li>
+                <li>Directed-evolution platforms to study enzyme function *in vitro* and *in vivo*.</li>
+                <li>*In vitro* systems for obtaining enzymes with an expanded amino-acid composition.</li>
+                <li>Enzyme engineering for enhanced stability and reducing side reactions.</li>
+            </ul>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">Expanding the Biological Alphabet: Unnatural Nucleotides</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                The genetic code itself is being expanded. In 1989, Steven Benner's group created a 6-letter DNA (adding 'P' and 'Z' nucleotides). While 4-letter DNA encodes 20 amino acids, this 6-letter system could theoretically encode up to 10 times more.
+            </p>
+            <h3 class="text-xl font-semibold text-[#004E9A] mb-4">XNA Modification Types:</h3>
+            <div class="flex flex-col md:flex-row gap-4 mt-4 text-center">
+                <div class="flex-1 p-4 bg-[#B8DFFF] rounded-lg text-[#003366] font-semibold">
+                    (A) Base Modifications
+                </div>
+                <div class="flex-1 p-4 bg-[#B8DFFF] rounded-lg text-[#003366] font-semibold">
+                    (B) Sugar Modifications
+                </div>
+                <div class="flex-1 p-4 bg-[#B8DFFF] rounded-lg text-[#003366] font-semibold">
+                    (C) Phosphate Modifications
+                </div>
+            </div>
+        </section>
+        
+        <section class="md:col-span-2 bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">The Engineer's Toolkit: Methods & Workflow</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                A suite of powerful techniques enables the precise and rapid engineering of genomes. These methods are part of a high-throughput workflow that has industrialized the process of DNA synthesis and assembly.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-[#004E9A] mb-4">Advanced Engineering Techniques:</h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <span class="font-bold text-[#004E9A]">MAGE:</span>
+                            <span class="text-sm text-[#003366]"> Multiplex Automated Genome Engineering for iterative oligo recombination.</span>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <span class="font-bold text-[#004E9A]">ICE:</span>
+                            <span class="text-sm text-[#003366]"> *In vivo* Continuous Evolution via reverse transcription and reintegration.</span>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <span class="font-bold text-[#004E9A]">EvolvR:</span>
+                            <span class="text-sm text-[#003366]"> nCas9-fused DNA polymerase for error-prone strand synthesis.</span>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+                            <span class="font-bold text-[#0Services]">SCRaMbLE:</span>
+                            <span class="text-sm text-[#003366]"> Recombination system enabling vast phenotype diversity.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-[#004E9A] mb-4">High-Throughput DNA Assembly Workflow:</h3>
+                    <div class="flex flex-col space-y-4">
+                        <div class="p-4 bg-white border-2 border-[#007BFF] rounded-lg text-center shadow-sm">
+                            <span class="font-semibold text-lg text-[#003366]">1. Software Design</span>
+                            <p class="text-sm text-[#004E9A]">Design of synthetic sequences and fragment schemes.</p>
+                        </div>
+                        <div class="self-center text-3xl font-bold text-[#007BFF] transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-white border-2 border-[#007BFF] rounded-lg text-center shadow-sm">
+                            <span class="font-semibold text-lg text-[#003366]">2. Oligonucleotide Synthesis</span>
+                            <p class="text-sm text-[#004E9A]">Assembly from synthetic oligos using LCR and PCR.</p>
+                        </div>
+                        <div class="self-center text-3xl font-bold text-[#007BFF] transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-white border-2 border-[#007BFF] rounded-lg text-center shadow-sm">
+                            <span class="font-semibold text-lg text-[#003366]">3. Sequencing & Error Correction</span>
+                            <p class="text-sm text-[#004E9A]">Sanger and nanopore methods; enzymatic correction.</p>
+                        </div>
+                        <div class="self-center text-3xl font-bold text-[#007BFF] transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-white border-2 border-[#007BFF] rounded-lg text-center shadow-sm">
+                            <span class="font-semibold text-lg text-[#003366]">4. Fragment Assembly</span>
+                            <p class="text-sm text-[#004E9A]">Assembly of 1kb to 100kb+ fragments in *E. coli* or yeast.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">The Next Frontier: BioAI</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                The convergence of artificial intelligence and synthetic biology is creating "BioAI." AI can decode life's complexity at a scale beyond human cognition, enabling the design and prediction of gene networks, proteins, and metabolic pathways with unprecedented precision.
+            </p>
+            <div class="flex flex-col items-center justify-center gap-4 text-center mt-6">
+                <div class="p-4 rounded-lg bg-[#B8DFFF] w-full">
+                    <span class="font-bold text-lg text-[#003366]">Synthetic Biology</span>
+                    <p class="text-sm text-[#004E9A]">Constructs Biological Systems</p>
+                </div>
+                <span class="text-4xl font-bold text-[#007BFF]">+</span>
+                <div class="p-4 rounded-lg bg-[#B8DFFF] w-full">
+                    <span class="font-bold text-lg text-[#003366]">Artificial Intelligence</span>
+                    <p class="text-sm text-[#004E9A]">Decodes Complexity</p>
+                </div>
+                <span class="text-4xl font-bold text-[#007BFF]">=</span>
+                <div class="p-5 rounded-lg bg-[#004E9A] text-white w-full shadow-lg">
+                    <span class="font-bold text-xl">BioAI</span>
+                    <p class="text-sm text-gray-200">Intelligent Engineering of Life</p>
+                </div>
+            </div>
+            <p class="text-sm text-[#004E9A] mt-6 italic text-center">
+                "When life becomes computable, intelligence becomes biological."
+            </p>
+        </section>
+        
+        <section class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h2 class="text-3xl font-bold text-[#003366] mb-4">The Philosophical Dimension</h2>
+            <p class="text-base text-[#004E9A] mb-6">
+                This engineering power forces humanity to confront deep philosophical questions about the nature of life and morality. The field integrates biology and neuroscience with philosophy to explore whether our sense of right and wrong is an evolutionary adaptation or a rational construct.
+            </p>
+            <h3 class="text-xl font-semibold text-[#004E9A] mb-4">Key Figures & Questions:</h3>
+            <ul class="list-none space-y-4 text-[#003366]">
+                <li class="flex items-start">
+                    <span class="text-[#007BFF] font-bold text-2xl mr-3 mt-[-4px]">?</span>
+                    <span>Is altruism a form of sophisticated egoism?</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-[#007BFF] font-bold text-2xl mr-3 mt-[-4px]">?</span>
+                    <span>Does self-limitation exist in human destructiveness?</span>
+                </li>
+            </ul>
+            <div class="mt-6 border-t border-gray-200 pt-6 space-y-3">
+                <p class="text-sm text-[#003366]"><span class="font-semibold text-[#004E9A]">Vladimir Efroimson:</span> Pioneer of genetic approaches to ethics and behavior.</p>
+                <p class="text-sm text-[#003366]"><span class="font-semibold text-[#004E9A]">Immanuel Kant:</span> Philosopher of moral law and the categorical imperative.</p>
+                <p class="text-sm text-[#003366]"><span class="font-semibold text-[#004E9A]">Marc Hauser:</span> Explored moral minds as a universal, evolved sense.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-10 mt-8">
+        <p class="text-sm text-gray-500">
+            Infographic based on "SYNTHETIC BIOLOGY — ENGLISH PRESENTATION SET".
+        </p>
+        <p class="text-sm text-[#003366] font-semibold mt-2">
+            Raif Gayanovich Vasilov — National Research Center “Kurchatov Institute”, Russia
+        </p>
+        <p class="text-xs text-gray-400 mt-1">2 November 2025</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const palette = {
+                navy: '#003366',
+                strongBlue: '#004E9A',
+                brightBlue: '#007BFF',
+                mediumBlue: '#4DA8FF',
+                lightBlue: '#B8DFFF',
+                text: '#003366'
+            };
+
+            Chart.defaults.color = palette.text;
+            Chart.defaults.font.family = 'Inter, sans-serif';
+            Chart.defaults.font.weight = '600';
+
+            function processLabel(label, maxLen = 16) {
+                if (typeof label !== 'string' || label.length <= maxLen) return label;
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLen) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine) lines.push(currentLine);
+                return lines;
+            }
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const sharedChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        },
+                        backgroundColor: '#FFFFFF',
+                        titleColor: '#003366',
+                        bodyColor: '#004E9A',
+                        borderColor: '#B8DFFF',
+                        borderWidth: 1
+                    }
+                }
+            };
+
+            if (document.getElementById('minimalCellChart')) {
+                const ctx = document.getElementById('minimalCellChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Known Function (324)', 'Unknown Function (149)'],
+                        datasets: [{
+                            data: [324, 149],
+                            backgroundColor: [
+                                palette.strongBlue,
+                                palette.mediumBlue
+                            ],
+                            borderColor: '#FFFFFF',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        ...sharedChartOptions,
+                        cutout: '70%',
+                    }
+                });
+            }
+
+            if (document.getElementById('genomeReductionChart')) {
+                const ctx = document.getElementById('genomeReductionChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'M. mycoides (Natural Donor)',
+                            'JCVI-syn2.0',
+                            'JCVI-syn3.0 (Minimal)'
+                        ].map(l => processLabel(l)),
+                        datasets: [{
+                            label: 'Genome Size (kbp)',
+                            data: [1083, 576, 531],
+                            backgroundColor: [
+                                palette.mediumBlue,
+                                palette.strongBlue,
+                                palette.brightBlue
+                            ],
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        ...sharedChartOptions,
+                        indexAxis: 'y',
+                        plugins: {
+                            ...sharedChartOptions.plugins,
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    callback: (value) => value + ' kbp'
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
